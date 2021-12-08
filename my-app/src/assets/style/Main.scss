@@ -1,0 +1,321 @@
+@import 'Variables';
+@font-face {
+    font-family: "Galano Grotesque";
+    src: local("Galano Grotesque"),
+        url("../fonts/galano-grotesque/galanogrotesque-regular.otf") format("truetype");
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Galano Grotesque";
+    src: local("Galano Grotesque"),
+        url("../fonts/galano-grotesque/galanogrotesque-medium.otf") format("truetype");
+    font-weight: 500;
+}
+@font-face {
+    font-family: "Galano Grotesque";
+    src: local("Galano Grotesque"),
+        url("../fonts/galano-grotesque/galanogrotesque-semibold.otf") format("truetype");
+    font-weight: 600;
+}
+
+body{
+    font-family: 'Galano Grotesque';
+    font-weight: 400;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    color: $blackColor;
+    background-color: $lightGreyColor;
+    overflow-Y: scroll;
+}
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100%;
+    max-width: 1150px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.page{
+    position: relative;
+    z-index: 2;
+    margin-top:-194px;
+    background-color: $whiteColor;
+    box-shadow: 0px 2px 8px rgba(26, 24, 30, 0.06);
+    border-radius: 8px;
+    min-height: 400px;
+    padding: 64px 20px;
+    margin-bottom: 60px;
+    &-inner{
+        width: 100%;
+        max-width: 736px;
+        margin: 0 auto;
+    }
+    &-head{
+        margin-bottom: 48px;
+        &-title{
+            font-size: 36px;
+            font-weight: 600;
+            line-height: 42px;
+            letter-spacing: -0.04em;
+            margin: 0 0 16px 0;
+        }
+        &-desc{
+            font-size: 20px;
+            line-height: 28px;
+            margin: 0;
+        }
+    }
+}
+
+.form{
+    &-group{
+        width: 100%;
+        max-width: 352px;
+        position: relative;
+        margin-bottom: 48px;
+    }
+    &-label{
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 24px;
+        color: $darkGreyColor;
+    }
+    &-input{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        border: 1px solid $borderGreyColor;
+        border-radius: 4px;
+    }
+    &-control{
+        width: 100%;
+        height: 46px;
+        border: none;
+        outline: none;
+        background: none;
+        margin: 0;
+        padding: 0 16px;
+        font-size: 16px;
+    }
+    &-clear-btn{
+        width: 46px;
+        height: 46px;
+        border: none;
+        background: none;
+        outline: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.2s ease-in-out;
+        .icon-fill{
+            fill: $darkGreyColor;
+        }
+        &:hover{
+            background-color: $lightGreyColor;
+        }
+    }
+}
+
+.slogan-list{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    &-item{
+        width: calc(50% - 16px);
+        background: $greyColor;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        position: relative;
+        span{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            min-height: 60px;
+            padding: 0 16px;
+            position: relative;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 22px;
+            border: 3px solid $greyColor;
+            transition: all 0.6s ease-in-out;
+            &:before{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                white-space: nowrap;
+                right: calc(100% + 16px);
+                background-color: $darkGreyColor;
+                border-radius: 4px;
+                display: inline-block;
+                z-index: 2;
+                color: $whiteColor;
+                padding: 4px 8px;
+                transition: all .2s ease-in-out;
+                opacity: 0;
+            }
+            &:hover{
+                &:before{
+                    content: attr(data-copy);
+                    opacity: 1;
+                }
+            }
+            &.copied{
+                border-color: $mainColor;
+                &:before{
+                    content:attr(data-copied);
+                    opacity: 1;
+                }
+            }
+        }
+        .removeItem{
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 16px;
+            height: 16px;
+            text-align: center;
+            line-height: 14px;
+            font-size: 14px;
+            background-color: $darkGreyColor;
+            border-radius: 50%;
+            color: $whiteColor;
+            cursor: pointer;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+        }
+        &:hover{
+            .removeItem{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.pagination{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    &-button{
+        width: 50px;
+        .button{
+            font-size: 14px;
+            line-height: 26px;
+            color: $mainColor;
+            cursor: pointer;
+            span{
+                display: inline-block;
+            }
+            &.prev{
+                text-align: left;
+                span{
+                    margin-left: 6px;
+                }
+            }
+            &.next{
+                text-align: right;
+                span {
+                    margin-right: 6px;
+                }
+            }
+        }
+        .hide{
+            display: none;
+        }
+    }
+    &-list{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        &-item{
+            width: 24px;
+            height: 24px;
+            text-align: center;
+            line-height: 24px;
+            border-radius: 50%;
+            background-color: $whiteColor;
+            color: $mainColor;
+            margin: 0 6px;
+            cursor: pointer;
+            &:hover{
+                background-color: rgba($mainColor, 0.1);
+            }
+            &.active{
+                background-color: $mainColor;
+                color: $whiteColor;
+            }
+        }
+    }
+}
+
+.slogan_result{
+    &-head{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 48px;
+        margin-top: 48px;
+        margin-bottom: 22px;
+        border-top: 1px solid $borderGreyColor;
+        &-title{
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 28px;
+            margin: 0;
+        }
+    }
+    &-body{
+        .removeAll{
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            display: inline-flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+            &:before{
+                content:'';
+                width: 15px;
+                height: 20px;
+                border: 1px solid $blackColor;
+                display: block;
+                margin-right: 10px;
+                transition: all .2s ease-in-out;
+            }
+            &:hover{
+                &:before{
+                    background-color: $mainColor;
+                }
+            }
+        }
+    }
+    &-footer{
+        margin-top: 33px;
+        padding-top: 24px;
+        border-top: 1px solid $borderGreyColor;
+    }
+}

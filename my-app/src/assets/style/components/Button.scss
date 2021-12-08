@@ -1,0 +1,43 @@
+@import '../Variables';
+.btn{
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 4px;
+    background-color: transparent;
+    height: 50px;
+
+    margin: 0;
+    padding: 0 24px;
+
+    font-size: 18px;
+    line-height: 26px;
+    white-space: nowrap;
+
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    &-white{
+        background-color: $whiteColor;
+        &:hover{
+            background-color: rgba($whiteColor,0.8);
+        }
+    }
+    &-blue{
+        background-color: $mainColor;
+        color: $whiteColor;
+    }
+    &-border{
+        &-blue{
+            font-size: 14px;
+            font-weight: 500;
+            height: 36px;
+            border: 1px solid $mainColor;
+            color: $mainColor;
+        }
+    }
+    &[disabled]{
+        background-color: $darkGreyColor;
+    }
+}

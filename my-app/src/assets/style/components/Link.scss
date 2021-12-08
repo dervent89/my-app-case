@@ -1,0 +1,13 @@
+@import '../Variables';
+.link{
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 26px;
+    text-decoration: none;
+    &-white{
+        color: $whiteColor;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
